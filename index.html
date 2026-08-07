@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suraj Reddy Kota</title>
+<style>
+  :root{
+    --ink:#1c2127;
+    --muted:#5c6672;
+    --line:#e3e6ea;
+    --accent:#1d4ed8;
+    --bg:#ffffff;
+    --code:#f3f4f6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:Georgia,'Times New Roman',serif;
+    color:var(--ink);background:var(--bg);
+    line-height:1.65;font-size:17px;
+  }
+  .mono{font-family:'SF Mono',Menlo,Consolas,monospace;font-size:.82em}
+  main{max-width:680px;margin:0 auto;padding:56px 22px 80px}
+  header h1{font-size:1.9rem;font-weight:normal;letter-spacing:-.01em}
+  header .sub{color:var(--muted);margin-top:6px}
+  .links{margin-top:14px}
+  .links a{color:var(--accent);text-decoration:none;margin-right:18px}
+  .links a:hover{text-decoration:underline}
+  section{margin-top:52px}
+  h2{
+    font-size:.8rem;text-transform:uppercase;letter-spacing:.14em;
+    color:var(--muted);font-weight:600;margin-bottom:18px;
+    font-family:'SF Mono',Menlo,Consolas,monospace;
+  }
+  .intro p+p{margin-top:14px}
+  .project{padding:20px 0;border-top:1px solid var(--line)}
+  .project:last-child{border-bottom:1px solid var(--line)}
+  .project h3{font-size:1.05rem;font-weight:600}
+  .project h3 a{color:var(--ink);text-decoration:none}
+  .project h3 a:hover{color:var(--accent)}
+  .project .tag{
+    font-family:'SF Mono',Menlo,Consolas,monospace;font-size:.72rem;
+    color:var(--muted);background:var(--code);border-radius:3px;
+    padding:2px 7px;margin-left:8px;vertical-align:2px;
+  }
+  .project p{margin-top:8px;color:#333a42}
+  .project .detail{margin-top:6px;font-size:.92rem;color:var(--muted)}
+  .exp{margin-bottom:22px}
+  .exp .role{font-weight:600}
+  .exp .where{color:var(--muted)}
+  .exp p{margin-top:4px;font-size:.95rem;color:#333a42}
+  footer{margin-top:70px;padding-top:20px;border-top:1px solid var(--line);
+    color:var(--muted);font-size:.85rem}
+  @media(max-width:480px){body{font-size:16px}main{padding-top:40px}}
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>Suraj Reddy Kota</h1>
+    <div class="sub">ML &amp; data engineer — Plano, TX</div>
+    <div class="links mono">
+      <a href="https://github.com/suraj-2597">github</a>
+      <a href="mailto:surajreddykota42@gmail.com">email</a>
+    </div>
+  </header>
+
+  <section class="intro">
+    <p>I build data and ML systems: pipelines that move and validate data, models that run in production, and the monitoring that tells you when either one is quietly breaking. Most of what I've learned came from getting the unglamorous parts wrong first — chunk boundaries, retry semantics, evaluation metrics that hide the actual failure mode.</p>
+    <p>M.S. in Computer &amp; Information Sciences from Texas A&amp;M Corpus Christi. Previously did data engineering work on AWS and security log analysis at Zscaler. One peer-reviewed ML paper (obesity risk prediction, ICICSO 2023).</p>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+
+    <div class="project">
+      <h3><a href="https://github.com/suraj-2597/fraud-signal">fraud-signal</a><span class="tag">python · sklearn</span></h3>
+      <p>Identity fraud detection on credit applications. The interesting part is the feature engineering: fraud signal lives in cross-field relationships (email age vs. stated age, thin file + VOIP phone), not in any single column.</p>
+      <p class="detail">Evaluated at review-capacity operating points instead of accuracy. The per-segment slice showed the model catches 93% of synthetic identities but only 43% of first-party fraud at a 5% review rate — which told me that segment needs different data, not a better classifier.</p>
+    </div>
+
+    <div class="project">
+      <h3><a href="https://github.com/suraj-2597/neural-query-engine">neural-query-engine</a><span class="tag">python · sqlite</span></h3>
+      <p>Document search pipeline: sentence-aware chunking with overlap, TF-IDF vectors, cosine retrieval with metadata filtering. Built as the retrieval layer for a RAG setup; kept separate because retrieval is where the quality problems actually were.</p>
+      <p class="detail">Queries answer in 2–5ms on a small corpus. Two small ranking changes (sublinear TF, a first-chunk position bonus) measurably beat everything else I tried.</p>
+    </div>
+
+    <div class="project">
+      <h3><a href="https://github.com/suraj-2597/pipeline-orchestrator">pipeline-orchestrator</a><span class="tag">python</span></h3>
+      <p>A dependency-aware task runner in ~150 lines: topological scheduling, retries with exponential backoff, failure isolation between branches, per-task run reports. Built to understand what Airflow does under the hood instead of treating it as magic.</p>
+      <p class="detail">The demo pipeline includes a quality gate — publish refuses to run if eval accuracy is under threshold — implemented as an ordinary task.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="exp">
+      <div><span class="role">Lab Administrator</span> <span class="where">— Palo Alto Networks, Plano TX (2026–)</span></div>
+      <p>Automating lab infrastructure with Python and Bash on Linux; monitoring environment health and chasing down failures.</p>
+    </div>
+    <div class="exp">
+      <div><span class="role">AI/ML Data Engineering Intern</span> <span class="where">— AWS Academy (2024–25)</span></div>
+      <p>Batch data pipelines in Python and SQL on AWS; Airflow orchestration; preparing and validating feature datasets for training in SageMaker.</p>
+    </div>
+    <div class="exp">
+      <div><span class="role">Cloud Security Engineering Intern</span> <span class="where">— Zscaler (2023–24)</span></div>
+      <p>High-volume traffic log analysis in Python and SQL; automated the recurring collection and reporting work.</p>
+    </div>
+  </section>
+
+  <footer>
+    <span class="mono">surajreddykota42@gmail.com</span> · CCNA certified · authorized to work in the US
+  </footer>
+</main>
+</body>
+</html>
